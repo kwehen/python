@@ -1,11 +1,11 @@
 import requests
 import json
 
-base_url = 'https://bible-api.com/'
-query = input("Enter Bible Verse: ")
+base_url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
+query = input("Enter a drink name: ")
 
 r = requests.get(f'{base_url}{query}', verify=False)
-r = r.json()
-verse = r['text']
+result = r.json()['drinks']
 
-print(verse)
+instructions = result[0]['strInstructions']
+print(f'Intructions: {instructions}')
