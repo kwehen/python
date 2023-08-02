@@ -1,10 +1,11 @@
-from urllib import response
 import requests
 import json
 
-r = requests.get('https://api.chucknorris.io/jokes/random', verify=False)
+base_url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
+query = input("Enter a drink name: ")
 
-r = r.json()
-punchline = r['value']
+r = requests.get(f'{base_url}{query}', verify=False)
+result = r.json()['drinks']
 
-print(f'I have a good Chuck Norris joke for you... {punchline}')
+instructions = result[0]['strInstructions']
+print(f'Intructions: {instructions}')
