@@ -21,3 +21,4 @@ while True:
         else:
             print(f"{base_url}{page} is not responding properly, login and remediate error.")
     time.sleep(120)
+# Send SES email for the else statement. This also needs reformatted into a lambda function. 
